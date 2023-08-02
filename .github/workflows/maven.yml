@@ -31,3 +31,12 @@ jobs:
       run: mvn clean install
 
   
+    - uses: mr-smithers-excellent/docker-build-push@v6
+      name: Build & push Docker image
+      with:
+       image: aparna31638/simplesample
+       tags: v1, latest
+       registry: docker.io
+       dockerfile: Dockerfile
+       username: ${{ secrets.DOCKER_USERNAME }}
+       password: ${{ secrets.DOCKER_PASSWORD }}
