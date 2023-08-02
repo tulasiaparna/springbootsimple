@@ -1,4 +1,4 @@
-FROM openjdk:19-alpine
-ARG JAR_FILE=target/*.jar
-COPY ./target/drop.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM openjdk:17
+EXPOSE 8080
+ADD target/drop.jar
+ENTRYPOINT ["java","-jar","/drop.jar"]
